@@ -1,0 +1,168 @@
+<h4 class="text-center">Registre-se e mostre seu pet ao mundo!</h4>
+
+<form class="form mt-4" [formGroup]="novoUsuarioForm" (submit)="cadastrar()">
+  <div class="form-group">
+    <input placeholder="e-mail" class="form-control" formControlName="email" />
+    <app-mensagem
+      *ngIf="
+        novoUsuarioForm.get('email')?.errors?.required &&
+        novoUsuarioForm.get('email')?.touched
+      "
+      mensagem="E-mail obrigatório"
+    >
+    </app-mensagem>
+    <app-mensagem
+      *ngIf="
+        novoUsuarioForm.get('email')?.errors?.email &&
+        novoUsuarioForm.get('email')?.touched
+      "
+      mensagem="E-mail no formato incorreto">
+    </app-mensagem>
+
+    <app-mensagem
+    *ngIf="
+      novoUsuarioForm.get('email')?.errors?.usuarioExistente"
+    mensagem="E-mail já existe">
+    </app-mensagem>
+  </div>
+
+
+  <div class="form-group">
+    <input
+      placeholder="Nome Completo"
+      class="form-control"
+      formControlName="nomeResponsavel"
+    />
+    <app-mensagem
+      *ngIf="
+        novoUsuarioForm.get('nomeResponsavel')?.errors &&
+        novoUsuarioForm.get('nomeResponsavel')?.touched
+      "
+      mensagem="Nome incorreto">
+    </app-mensagem>
+  </div>
+
+
+  <div class="form-group">
+    <input
+      placeholder="Nome do Time"
+      class="form-control"
+      formControlName="nomeTime"
+    />
+    <app-mensagem
+      *ngIf="
+        novoUsuarioForm.get('nomeTime')?.errors &&
+        novoUsuarioForm.get('nomeTime')?.touched
+      "
+      mensagem="Nome do Time incorreto">
+    </app-mensagem>
+  </div>
+
+
+  <div class="form-group">
+    <input
+      placeholder="Data Nascimento"
+      class="form-control"
+      formControlName="dataNascimento"
+    />
+    <app-mensagem
+      *ngIf="
+        novoUsuarioForm.get('dataNascimento')?.errors &&
+        novoUsuarioForm.get('dataNascimento')?.touched
+      "
+      mensagem="Data incorreta">
+    </app-mensagem>
+  </div>
+
+
+  <div class="form-group">
+    <input
+      placeholder="Cidade"
+      class="form-control"
+      formControlName="cidade"
+    />
+    <app-mensagem
+      *ngIf="
+        novoUsuarioForm.get('cidade')?.errors &&
+        novoUsuarioForm.get('cidade')?.touched
+      "
+      mensagem="Cidade incorreta">
+    </app-mensagem>
+  </div>
+
+  <div class="form-group">
+    <input
+      placeholder="Bairro"
+      class="form-control"
+      formControlName="bairro"
+    />
+    <app-mensagem
+      *ngIf="
+        novoUsuarioForm.get('bairro')?.errors &&
+        novoUsuarioForm.get('bairro')?.touched
+      "
+      mensagem="Bairro incorreto">
+    </app-mensagem>
+  </div>
+
+
+  <div class="form-group">
+    <input
+      placeholder="Zona"
+      class="form-control"
+      formControlName="zona"
+    />
+    <app-mensagem
+      *ngIf="
+        novoUsuarioForm.get('zona')?.errors &&
+        novoUsuarioForm.get('zona')?.touched
+      "
+      mensagem="Zona incorreto">
+    </app-mensagem>
+  </div>
+
+
+  <div class="form-group">
+    <input
+      placeholder="DDD"
+      class="form-control"
+      formControlName="ddd"
+    />
+    <app-mensagem
+      *ngIf="
+        novoUsuarioForm.get('ddd')?.errors &&
+        novoUsuarioForm.get('ddd')?.touched
+      "
+      mensagem="DDD incorreto">
+    </app-mensagem>
+  </div>
+
+  <div class="form-group">
+    <input
+      placeholder="Telefone"
+      class="form-control"
+      formControlName="telefone"
+    />
+    <app-mensagem
+      *ngIf="
+        novoUsuarioForm.get('telefone')?.errors &&
+        novoUsuarioForm.get('telefone')?.touched
+      "
+      mensagem="Telefone incorreto">
+    </app-mensagem>
+  </div>
+
+
+  <div class="form-group">
+    <input
+      type="senha"
+      placeholder="Senha"
+      class="form-control"
+      formControlName="senha"
+    />
+  </div>
+
+  <button class="btn btn-primary btn-block">Cadastro</button>
+</form>
+
+<p>Já um usuário? <a [routerLink]="['']"> Faça Login</a></p>

@@ -1,0 +1,28 @@
+.mat-form-field {
+  width: 100%;
+  min-width: 500px;
+}
+
+.form-login {
+  display: flex;
+  justify-content: center;
+  margin: 100px 0px;
+}
+
+mat-card-title, mat-card-content {
+  top: 500px;
+  display: flex;
+  justify-content: center;
+}
+
+.button-100 {
+  width: 100%;
+}
+
+.button-cadastrar {
+  margin-top: 30px;
+}
+
+.button-cadastrar-facebook {
+  margin-top: 10px;
+}

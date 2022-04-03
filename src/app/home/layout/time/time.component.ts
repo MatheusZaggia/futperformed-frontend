@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Time } from './time';
 import { TimeService } from './time.service';
 
+
 @Component({
   selector: 'app-time',
   templateUrl: './time.component.html',
@@ -12,6 +13,7 @@ import { TimeService } from './time.service';
 export class TimeComponent implements OnInit {
 
   novoTimeForm!: FormGroup;
+  time!: Time;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -36,13 +38,13 @@ export class TimeComponent implements OnInit {
     );
   }
 
-  cadastrar() {
+  consultarTime() {
     if (this.novoTimeForm.valid) {
-      const novoTime = this.novoTimeForm.getRawValue() as Time;
-      console.log(novoTime);
-      this.timeService.cadastraNovaQuadra(novoTime).subscribe(
+      const time = this.novoTimeForm.getRawValue() as Time;
+      console.log(time);
+      this.timeService.alterarTime(time).subscribe(
         () => {
-          this.router.navigate(['']);
+          this.time = time;
         },
         (error) => {
           console.log(error);

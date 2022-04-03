@@ -1,1 +1,110 @@
-<p>jogador-time works!</p>
+<h2 class="text-center">Cadastrar um novo jogador do Time!</h2>
+
+<form class="form mt-4" [formGroup]="novoJogadorTimeForm" (submit)="cadastrar()">
+  <div class="form-group">
+    <input placeholder="e-mail" class="form-control" formControlName="email" />
+    <app-mensagem
+      *ngIf="
+      novoJogadorTimeForm.get('email')?.errors?.required &&
+      novoJogadorTimeForm.get('email')?.touched
+      "
+      mensagem="E-mail obrigatório"
+    >
+    </app-mensagem>
+    <app-mensagem
+      *ngIf="
+      novoJogadorTimeForm.get('email')?.errors?.email &&
+        novoJogadorTimeForm.get('email')?.touched
+      "
+      mensagem="E-mail no formato incorreto">
+    </app-mensagem>
+
+    <app-mensagem
+    *ngIf="
+      novoJogadorTimeForm.get('email')?.errors?.usuarioExistente"
+    mensagem="E-mail já existe">
+    </app-mensagem>
+  </div>
+
+
+  <div class="form-group">
+    <input
+      placeholder="Quadro"
+      class="form-control"
+      formControlName="quadro"
+    />
+    <app-mensagem
+      *ngIf="
+        novoJogadorTimeForm.get('quadro')?.errors &&
+        novoJogadorTimeForm.get('quadro')?.touched
+      "
+      mensagem="Quadro incorreto">
+    </app-mensagem>
+  </div>
+
+
+  <div class="form-group">
+    <input
+      placeholder="DDD"
+      class="form-control"
+      formControlName="ddd"
+    />
+    <app-mensagem
+      *ngIf="
+        novoJogadorTimeForm.get('ddd')?.errors &&
+        novoJogadorTimeForm.get('ddd')?.touched
+      "
+      mensagem="DDD incorreto">
+    </app-mensagem>
+  </div>
+
+
+  <div class="form-group">
+    <input
+      placeholder="Telefone"
+      class="form-control"
+      formControlName="telefone"
+    />
+    <app-mensagem
+      *ngIf="
+        novoJogadorTimeForm.get('telefone')?.errors &&
+        novoJogadorTimeForm.get('telefone')?.touched
+      "
+      mensagem="Telefone incorreta">
+    </app-mensagem>
+  </div>
+
+
+  <div class="form-group">
+    <input
+      placeholder="Posição"
+      class="form-control"
+      formControlName="posicao"
+    />
+    <app-mensagem
+      *ngIf="
+        novoJogadorTimeForm.get('posicao')?.errors &&
+        novoJogadorTimeForm.get('posicao')?.touched
+      "
+      mensagem="Posição incorreta">
+    </app-mensagem>
+  </div>
+
+  <div class="form-group">
+    <input
+      placeholder="Nome do Jogador"
+      class="form-control"
+      formControlName="nomeJogador"
+    />
+    <app-mensagem
+      *ngIf="
+        novoJogadorTimeForm.get('nomeJogador')?.errors &&
+        novoJogadorTimeForm.get('nomeJogador')?.touched
+      "
+      mensagem="Nome do Jogador incorreto">
+    </app-mensagem>
+  </div>
+
+
+  <button class="btn btn-primary btn-block">Cadastrar</button>
+</form>

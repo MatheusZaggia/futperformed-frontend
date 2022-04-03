@@ -1,1 +1,49 @@
-<p>quadra works!</p>
+<h2 class="text-center">Cadastrar uma nova Quadra para o Time!</h2>
+
+<form class="form mt-4" [formGroup]="novaQuadraForm" (submit)="cadastrar()">
+  <div class="form-group">
+    <input placeholder="Nome da Quadra" class="form-control" formControlName="nomeQuadra" />
+    <app-mensagem
+      *ngIf="
+      novaQuadraForm.get('nomeQuadra')?.errors?.required &&
+      novaQuadraForm.get('nomeQuadra')?.touched
+      "
+      mensagem="Quadra obrigatória"
+    >
+    </app-mensagem>
+  </div>
+
+
+  <div class="form-group">
+    <input
+      placeholder="Tipo da Quadra"
+      class="form-control"
+      formControlName="tipoQuadra"
+    />
+    <app-mensagem
+      *ngIf="
+        novaQuadraForm.get('tipoQuadra')?.errors &&
+        novaQuadraForm.get('tipoQuadra')?.touched
+      "
+      mensagem="Quadra incorreta">
+    </app-mensagem>
+  </div>
+
+
+  <div class="form-group">
+    <input
+      placeholder="Endereço"
+      class="form-control"
+      formControlName="endereco"
+    />
+    <app-mensagem
+      *ngIf="
+        novaQuadraForm.get('endereco')?.errors &&
+        novaQuadraForm.get('endereco')?.touched
+      "
+      mensagem="Endereço incorreto">
+    </app-mensagem>
+  </div>
+
+  <button class="btn btn-primary btn-block">Cadastrar</button>
+</form>

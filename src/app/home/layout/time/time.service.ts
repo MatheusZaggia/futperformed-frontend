@@ -1,3 +1,4 @@
+import { environment } from './../../../../environments/environment.prod';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Time } from './time';
@@ -9,7 +10,12 @@ export class TimeService {
 
   constructor(private http: HttpClient) {}
 
-  cadastraNovaQuadra(novoTime: Time) {
-    return this.http.post('http://localhost:8080/api/time', novoTime);
+  alterarTime(novoTime: Time) {
+    return this.http.put(`${environment.url}/time`, novoTime);
+  }
+
+  buscaTime(id: Number) {
+    console.log(id);
+    return this.http.get<Time>(`${environment.url}/time/${id}`);
   }
 }

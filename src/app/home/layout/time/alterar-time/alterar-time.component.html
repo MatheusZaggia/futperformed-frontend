@@ -1,27 +1,27 @@
-<h4 class="text-center">Registre o seu Time!</h4>
+<h4 class="text-center">Alterar o cadastro do seu Time</h4>
 
-<form class="form mt-4" [formGroup]="novoUsuarioForm" (submit)="cadastrar()">
+<form class="form mt-4" [formGroup]="editaUsuarioForm" (submit)="alterar()">
   <div class="form-group">
     <input placeholder="e-mail" class="form-control" formControlName="email" />
     <app-mensagem
       *ngIf="
-        novoUsuarioForm.get('email')?.errors?.required &&
-        novoUsuarioForm.get('email')?.touched
+        editaUsuarioForm.get('email')?.errors?.required &&
+        editaUsuarioForm.get('email')?.touched
       "
       mensagem="E-mail obrigatório"
     >
     </app-mensagem>
     <app-mensagem
       *ngIf="
-        novoUsuarioForm.get('email')?.errors?.email &&
-        novoUsuarioForm.get('email')?.touched
+        editaUsuarioForm.get('email')?.errors?.email &&
+        editaUsuarioForm.get('email')?.touched
       "
       mensagem="E-mail no formato incorreto">
     </app-mensagem>
 
     <app-mensagem
     *ngIf="
-      novoUsuarioForm.get('email')?.errors?.usuarioExistente"
+      editaUsuarioForm.get('email')?.errors?.usuarioExistente"
     mensagem="E-mail já existe">
     </app-mensagem>
   </div>
@@ -35,8 +35,8 @@
     />
     <app-mensagem
       *ngIf="
-        novoUsuarioForm.get('nomeResponsavel')?.errors &&
-        novoUsuarioForm.get('nomeResponsavel')?.touched
+        editaUsuarioForm.get('nomeResponsavel')?.errors &&
+        editaUsuarioForm.get('nomeResponsavel')?.touched
       "
       mensagem="Nome incorreto">
     </app-mensagem>
@@ -51,34 +51,28 @@
     />
     <app-mensagem
       *ngIf="
-        novoUsuarioForm.get('nomeTime')?.errors &&
-        novoUsuarioForm.get('nomeTime')?.touched
+        editaUsuarioForm.get('nomeTime')?.errors &&
+        editaUsuarioForm.get('nomeTime')?.touched
       "
       mensagem="Nome do Time incorreto">
     </app-mensagem>
   </div>
 
 
-  <div class="row">
-    <div class="col-md-12">
-      <mat-form-field>
-        <mat-label>Data de Nascimento</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="dataNascimento" >
-        <app-mensagem
+  <div class="form-group">
+    <input
+      placeholder="Data Nascimento"
+      class="form-control"
+      formControlName="dataNascimento"
+    />
+    <app-mensagem
       *ngIf="
-        novoUsuarioForm.get('dataNascimento')?.errors &&
-        novoUsuarioForm.get('dataNascimento')?.touched
+        editaUsuarioForm.get('dataNascimento')?.errors &&
+        editaUsuarioForm.get('dataNascimento')?.touched
       "
       mensagem="Data incorreta">
-        </app-mensagem>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-    </div>
+    </app-mensagem>
   </div>
-
-
-
 
 
   <div class="form-group">
@@ -89,8 +83,8 @@
     />
     <app-mensagem
       *ngIf="
-        novoUsuarioForm.get('cidade')?.errors &&
-        novoUsuarioForm.get('cidade')?.touched
+        editaUsuarioForm.get('cidade')?.errors &&
+        editaUsuarioForm.get('cidade')?.touched
       "
       mensagem="Cidade incorreta">
     </app-mensagem>
@@ -104,8 +98,8 @@
     />
     <app-mensagem
       *ngIf="
-        novoUsuarioForm.get('bairro')?.errors &&
-        novoUsuarioForm.get('bairro')?.touched
+        editaUsuarioForm.get('bairro')?.errors &&
+        editaUsuarioForm.get('bairro')?.touched
       "
       mensagem="Bairro incorreto">
     </app-mensagem>
@@ -120,8 +114,8 @@
     />
     <app-mensagem
       *ngIf="
-        novoUsuarioForm.get('zona')?.errors &&
-        novoUsuarioForm.get('zona')?.touched
+        editaUsuarioForm.get('zona')?.errors &&
+        editaUsuarioForm.get('zona')?.touched
       "
       mensagem="Zona incorreto">
     </app-mensagem>
@@ -136,8 +130,8 @@
     />
     <app-mensagem
       *ngIf="
-        novoUsuarioForm.get('ddd')?.errors &&
-        novoUsuarioForm.get('ddd')?.touched
+        editaUsuarioForm.get('ddd')?.errors &&
+        editaUsuarioForm.get('ddd')?.touched
       "
       mensagem="DDD incorreto">
     </app-mensagem>
@@ -151,8 +145,8 @@
     />
     <app-mensagem
       *ngIf="
-        novoUsuarioForm.get('telefone')?.errors &&
-        novoUsuarioForm.get('telefone')?.touched
+        editaUsuarioForm.get('telefone')?.errors &&
+        editaUsuarioForm.get('telefone')?.touched
       "
       mensagem="Telefone incorreto">
     </app-mensagem>
@@ -167,8 +161,6 @@
       formControlName="senha"
     />
   </div>
-
-
 
   <button class="btn btn-primary btn-block">Cadastro</button>
 </form>

@@ -1,3 +1,5 @@
+import { environment } from './../../../environments/environment';
+import { Time } from './../layout/time/time';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NovoTime } from './novo-usuario';
@@ -12,8 +14,8 @@ export class NovoUsuarioService {
     return this.http.post('http://localhost:8080/api/time', novoUsuario);
   }
 
-  verificaUsuarioExistente(email: string) {
-    return this.http.get(`http://localhost:8080/api/time/exists/${email}`);
+  verificaEmailExistente(email: string) {
+    return this.http.get<Time>(`${environment.url}/time?email=${email}`);
   }
 
 }

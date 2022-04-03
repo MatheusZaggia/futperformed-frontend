@@ -1,14 +1,29 @@
-<div class="container">
+
+
+<section class="container">
+
   <div class="row">
-    <div class="col-md-6 mb-2">
-      <img
-        class="img-fluid d-none d-sm-block"
-        src="assets/img/home.jpg"
-        alt="Imagem de um gato para as boas vindas"
-      />
+
+    <div class="col-6 mt-5 d-flex justify-content-center">
+      <button type="button" class="w-50 btn btn-primary btn-lg">Consultar Jogos</button>
     </div>
-    <div class="col-md-6">
-      <router-outlet></router-outlet>
+
+    <div class="col-6 mt-5 d-flex justify-content-center">
+      <button type="button" class="w-50 btn btn-primary btn-lg">Marcar Jogos</button>
     </div>
+
+    <div class="col-6 mt-5 d-flex justify-content-center">
+      <button type="button" class="w-50 btn btn-primary btn-lg">Ranking</button>
+    </div>
+
+    <div class="col-6 mt-5 d-flex justify-content-center">
+      <button type="button" class="w-50 btn btn-primary btn-lg" routerLink="alterar-time/1">Alterar Dados</button>
+    </div>
+
+    <div class="col-12 mt-5 d-flex justify-content-center">
+      <button type="button" class="w-50 btn btn-primary btn-lg" routerLink="jogador">Jogadores do Time</button>
+    </div>
+
   </div>
-</div>
+</section>
+

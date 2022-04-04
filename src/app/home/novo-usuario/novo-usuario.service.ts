@@ -11,7 +11,7 @@ export class NovoUsuarioService {
   constructor(private http: HttpClient) {}
 
   cadastraNovoUsuario(novoUsuario: NovoTime) {
-    return this.http.post('http://localhost:8080/api/time', novoUsuario);
+    return this.http.post(`${environment.url}/time`, novoUsuario);
   }
 
   verificaEmailExistente(email: string) {

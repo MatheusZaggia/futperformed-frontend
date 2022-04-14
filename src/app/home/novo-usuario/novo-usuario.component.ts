@@ -44,8 +44,8 @@ export class NovoUsuarioComponent implements OnInit {
 
   cadastrar() {
     if (this.novoUsuarioForm.valid) {
-      //this.verificaEmailExistente();
-      // if(this.emailExiste){
+      this.verificaEmailExistente();
+       if(this.emailExiste){
         const novoUsuario = this.novoUsuarioForm.getRawValue() as NovoTime;
         console.log(novoUsuario);
 
@@ -58,7 +58,7 @@ export class NovoUsuarioComponent implements OnInit {
             console.log(error);
           }
         );
-     // }
+      }
     }
   }
 
